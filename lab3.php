@@ -1,4 +1,3 @@
-// $result is populated from mysql query
 <html>
 <head></head>
 <body>

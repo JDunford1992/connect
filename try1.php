@@ -1,32 +1,11 @@
-<?php session_start(); ?>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <?php include('title.php'); ?>
 
-	<link rel="stylesheet" href="template.css" type="text/css" />
 </head>
 
 <body>
-	<div id="wrapper">
+	<div>
 
-		<div id="nav">
-			<?php include('menu.php'); ?>
-		</div>
-
-		<div id="login">
-			<?php if (!isset($_SESSION['username']))
-			{
-				include('toplog2.php');
-			}
-			else{include('toplog.php'); }
-			?>
-		</div>
-
-		<div id="banner">
-			<?php include('sitetitle.php'); ?>
+		<div>
 		</div>
 
 		<div id="main">

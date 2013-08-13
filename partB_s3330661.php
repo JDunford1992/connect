@@ -9,55 +9,50 @@
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
-			<table>
+			<table style="border= 10px;">
 				<tr> 
 					<td> Name of Wine: <input id="nameWine" name="nameWine" type="text" value=""> </td>
 					<td> Name of Winery: <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
 				</tr>
 
 				<tr>
+					<td> Grape Variety: 
+						<select id="grapeVariety" name="grapeVariety" value="tableName">
+							<?php
 
-				<td> Grape Variety: 
-					<select id="grapeVariety" name="grapeVariety" value="tableName">
-						<?php
+							$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
 
-						$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
-
-						while($row = mysql_fetch_row($result)) {
-							$tableName = $row[0];
-							echo '<option value="$tableName">$tableName</option>';
-						} ?>
-					</select> 
-				</td>
-
+							while($row = mysql_fetch_row($result)) {
+								$tableName = $row[0];
+								echo '<option value="$tableName">$tableName</option>';
+							} 
+							?>
+						</select>
+					</td>
 				</tr>
 
 				<tr>
-
 					<td> $ Cost Range: 
 						Min = <input id="costMin" name="costMin" type="text" value="">
 						Max = <input id="costMax" name="costMax" type="text" value="">
 					<td>
-
 				</tr>
 
 				<tr>
-
 					<td> Min No of Wines Stock: <input id="minStock" name="minStock" type="text" value=""> </td>
-					
 					<td> Min No of Wines Ordered: <input id="minOrder" name="minOrder" type="text" value=""> </td>
-
 				</tr>
 
-				<input id="submit" name="submit" type="submit" value="Submit AND Search">
+				<tr>
+					<td> <input id="submit" name="submit" type="submit" value="Submit AND Search"> </td> 
+				</tr>
 
-				</table>
+			</table>
+		</form>
 
-			</form>
+		<h3><i>-Comments Created By Jasio Dunford</i></h3>
+	</div>
 
-			<h3><i>-Comments Created By Jasio Dunford</i></h3>
-		</div>
-		
-	</body>
+</body>
 <footer></footer>
 </html>

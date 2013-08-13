@@ -1,5 +1,12 @@
 <html>
-<head></head>
+<head>
+	<style>
+	table,th,td
+	{
+		border:1px solid green;
+		}
+	</style>
+</head>
 
 <body>
 

@@ -1,7 +1,7 @@
 <html>
 <head>
 	<style>
-	th,td,tr
+	table,th,td
 	{
 		border:1px solid green;
 	}

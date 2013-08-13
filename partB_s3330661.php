@@ -1,10 +1,18 @@
 <html>
 <head>
 	<style>
-	table,th,td
+	table
+	{
+		border:2px solid green;
+	}
+	tr
+	{
+		border:1px solid blue;
+	}
+	th,td
 	{
 		border:1px solid green;
-		}
+	}
 	</style>
 </head>
 

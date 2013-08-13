@@ -9,7 +9,7 @@
 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
-			<table style="border= 10px;">
+			<table style="border-style:solid;border-width:5px;">
 				<tr> 
 					<td> Name of Wine: <input id="nameWine" name="nameWine" type="text" value=""> </td>
 					<td> Name of Winery: <input id="nameWinery" name="nameWinery" type="text" value=""> </td>

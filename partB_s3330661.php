@@ -1,11 +1,7 @@
 <html>
 <head>
 	<style>
-	tr
-	{
-		border:1px solid blue;
-	}
-	th,td
+	th,td,tr
 	{
 		border:1px solid green;
 	}

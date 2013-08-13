@@ -1,10 +1,6 @@
 <html>
 <head>
 	<style>
-	table
-	{
-		border:2px solid green;
-	}
 	tr
 	{
 		border:1px solid blue;

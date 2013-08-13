@@ -9,24 +9,45 @@
 
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
-				<select value="tableName">
-					<?php
+				<table>
 
-					$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
+					Name of Wine: 
 
-					while($row = mysql_fetch_row($result)) {
-						$tableName = $row[0];
-						echo '<option value="$tableName">$tableName</option>';
-					} ?>
-				</select>
+					<input id="nameWine" name="nameWine" type="text" value="">
 
-				<?php // you will need another drop down list here 
+					Name of Winery: 
 
-				echo '<option value="$tableName">$tableName</option>';
+					<input id="nameWinery" name="nameWinery" type="text" value="">
 
-				?>
+					Grape Variety: 
 
-				<input type="submit" name="submit" value="Run Query">
+					<select id="grapeVariety" name="grapeVariety" value="tableName">
+						<?php
+
+						$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
+
+						while($row = mysql_fetch_row($result)) {
+							$tableName = $row[0];
+							echo '<option value="$tableName">$tableName</option>';
+						} ?>
+					</select>
+
+					$ Cost Range:
+
+					Min = <input id="costMin" name="costMin" type="text" value="">
+					Max = <input id="costMax" name="costMax" type="text" value="">
+
+					Min No of Wines Stock:
+
+					<input id="minStock" name="minStock" type="text" value="">
+
+					Min No of Wines Ordered:
+
+					<input id="minOrder" name="minOrder" type="text" value="">
+
+				<input id="submit" name="submit" type="submit" value="Submit AND Search">
+
+				</table>
 
 			</form>
 

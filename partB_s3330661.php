@@ -4,23 +4,20 @@
 <body>
 
 	<div id="main">
-			<h1>Welcome to the Alpha Tool</h1>
-			<p>- This is an RMIT Student Project for WDA (Sem-2 2013) -</p>
+		<h1>Welcome to the Alpha Tool</h1>
+		<p>- This is an RMIT Student Project for WDA (Sem-2 2013) -</p>
 
-			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
 
-				<table>
+			<table>
+				<tr> 
+					<td> Name of Wine: <input id="nameWine" name="nameWine" type="text" value=""> </td>
+					<td> Name of Winery: <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
+				</tr>
 
-					Name of Wine: 
+				<tr>
 
-					<input id="nameWine" name="nameWine" type="text" value="">
-
-					Name of Winery: 
-
-					<input id="nameWinery" name="nameWinery" type="text" value="">
-
-					Grape Variety: 
-
+				<td> Grape Variety: 
 					<select id="grapeVariety" name="grapeVariety" value="tableName">
 						<?php
 
@@ -30,20 +27,27 @@
 							$tableName = $row[0];
 							echo '<option value="$tableName">$tableName</option>';
 						} ?>
-					</select>
+					</select> 
+				</td>
 
-					$ Cost Range:
+				</tr>
 
-					Min = <input id="costMin" name="costMin" type="text" value="">
-					Max = <input id="costMax" name="costMax" type="text" value="">
+				<tr>
 
-					Min No of Wines Stock:
+					<td> $ Cost Range: 
+						Min = <input id="costMin" name="costMin" type="text" value="">
+						Max = <input id="costMax" name="costMax" type="text" value="">
+					<td>
 
-					<input id="minStock" name="minStock" type="text" value="">
+				</tr>
 
-					Min No of Wines Ordered:
+				<tr>
 
-					<input id="minOrder" name="minOrder" type="text" value="">
+					<td> Min No of Wines Stock: <input id="minStock" name="minStock" type="text" value=""> </td>
+					
+					<td> Min No of Wines Ordered: <input id="minOrder" name="minOrder" type="text" value=""> </td>
+
+				</tr>
 
 				<input id="submit" name="submit" type="submit" value="Submit AND Search">
 

@@ -11,12 +11,14 @@
 
 			<table style="border-style:solid;border-width:5px;">
 				<tr> 
-					<td> Name of Wine: <input id="nameWine" name="nameWine" type="text" value=""> </td>
+					<td> Name of Wine: </td>
+					<td><input id="nameWine" name="nameWine" type="text" value=""> </td>
 					<td> Name of Winery: <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
 				</tr>
 
 				<tr>
-					<td> Grape Variety: 
+					<td> Grape Variety: </td>
+					<td>
 						<select id="grapeVariety" name="grapeVariety" value="tableName">
 							<?php
 
@@ -32,15 +34,20 @@
 				</tr>
 
 				<tr>
-					<td> $ Cost Range: 
-						Min = <input id="costMin" name="costMin" type="text" value="">
-						Max = <input id="costMax" name="costMax" type="text" value="">
+					<td> $ Cost Range: </td>
 					<td>
+						Min = <input id="costMin" name="costMin" type="text" value="">
+					<td>
+					<td>
+						Max = <input id="costMax" name="costMax" type="text" value="">
+					</td>
 				</tr>
 
 				<tr>
-					<td> Min No of Wines Stock: <input id="minStock" name="minStock" type="text" value=""> </td>
-					<td> Min No of Wines Ordered: <input id="minOrder" name="minOrder" type="text" value=""> </td>
+					<td> Min No of Wines Stock: </td>
+					<td> <input id="minStock" name="minStock" type="text" value=""> </td>
+					<td> Min No of Wines Ordered: </td>
+					<td> <input id="minOrder" name="minOrder" type="text" value=""> </td>
 				</tr>
 
 				<tr>

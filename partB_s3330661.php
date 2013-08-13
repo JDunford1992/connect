@@ -20,7 +20,8 @@
 				<tr> 
 					<td> Name of Wine: </td>
 					<td><input id="nameWine" name="nameWine" type="text" value=""> </td>
-					<td> Name of Winery: <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
+					<td> Name of Winery: </td>
+					<td> <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
 				</tr>
 
 				<tr>
@@ -44,7 +45,7 @@
 					<td> $ Cost Range: </td>
 					<td>
 						Min = <input id="costMin" name="costMin" type="text" value="">
-					<td>
+					</td>
 					<td>
 						Max = <input id="costMax" name="costMax" type="text" value="">
 					</td>

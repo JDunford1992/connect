@@ -52,8 +52,8 @@
 							$result = mysql_query("SELECT region_name FROM region ");
 
 							while($row = mysql_fetch_row($result)) {
-								$tableName = $row[region_name];
-								echo '<option value=$tableName>R1</option>';
+								$tableName = $row[0];
+								echo '<option value=$row[0]>R1</option>';
 							} 
 							?>
 						</select>
@@ -66,8 +66,8 @@
 							$result = mysql_query("SELECT variety FROM grape_variety ");
 
 							while($row = mysql_fetch_row($result)) {
-								$tableName = $row[2];
-								echo '<option value=$tableName>RE</option>';
+								$tableName = $row[0];
+								echo '<option value=$row[1]>RE</option>';
 							} 
 							?>
 						</select>

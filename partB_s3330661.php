@@ -19,12 +19,26 @@
 			<table style="border-style:solid;border-width:5px;">
 				<tr> 
 					<td> Name of Wine: </td>
-					<td><input id="nameWine" name="nameWine" type="text" value=""> </td>
+					<td> <input id="nameWine" name="nameWine" type="text" value=""> </td>
 					<td> Name of Winery: </td>
 					<td> <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
 				</tr>
 
 				<tr>
+					<td> Region: </td>
+					<td>
+						<select id="region" name="region" value="tableName">
+							<?php
+
+							$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
+
+							while($row = mysql_fetch_row($result)) {
+								$tableName = $row[0];
+								echo '<option value="$tableName">$tableName</option>';
+							} 
+							?>
+						</select>
+					</td>
 					<td> Grape Variety: </td>
 					<td>
 						<select id="grapeVariety" name="grapeVariety" value="tableName">

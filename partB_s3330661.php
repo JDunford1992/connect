@@ -46,28 +46,28 @@
 				<tr>
 					<td> Region: </td>
 					<td>
-						<select id="region" name="region" value="tableName">
+						<select id="region" name="region" value="region">
 							<?php
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
 							while($row = mysql_fetch_row($result)) {
 								$tableName = $row[0];
-								echo '<option value=$tableName>R1</option>';
+								echo '<option value="$tableName">$tableName</option>';
 							} 
 							?>
 						</select>
 					</td>
 					<td> Grape Variety: </td>
 					<td>
-						<select id="grapeVariety" name="grapeVariety" value="tableName">
+						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
 							<?php
 
 							$result = mysql_query("SELECT variety FROM grape_variety ");
 
 							while($row = mysql_fetch_row($result)) {
 								$tableName = $row[0];
-								echo '<option value=$tableName>R2</option>';
+								echo '<option value="$tableName">$tableName</option>';
 							} 
 							?>
 						</select>

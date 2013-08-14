@@ -52,9 +52,6 @@
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
-							$row = mysql_fetch_row($result);
-							echo $row[0];
-
 							while($row = mysql_fetch_row($result)) 
 							{
 								$tableName = $row[0];

@@ -54,7 +54,7 @@
 							while($row = @ mysql_fetch_row($result)) 
 							{
 								$tableName = $row["region_id"];
-								echo '<option value="$tableName">$tableName</option>';
+								echo '<option value="$tableName"/>';
 							}
 							?>
 						</select>
@@ -69,7 +69,7 @@
 							while($row = mysql_fetch_row($result)) 
 							{
 								$tableName = $row["variety_id"];
-								echo '<option value="$tableName">$tableName</option>';
+								echo '<option value="$tableName/>';
 							} 
 							?>
 						</select>

@@ -6,6 +6,9 @@
 		border:1px solid green;
 	}
 	</style>
+</head>
+
+<body>
 
 	<?php
 
@@ -25,11 +28,6 @@
 	mysql_select_db('winestore');
 
 	?>
-</head>
-
-<body>
-
-
 
 	<div id="main">
 		<h1>Welcome to the Alpha Tool</h1>
@@ -51,7 +49,7 @@
 						<select id="region" name="region" value="tableName">
 							<?php
 
-							$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
+							$result = mysql_query("SELECT region_name FROM region ");
 
 							while($row = mysql_fetch_row($result)) {
 								$tableName = $row[0];
@@ -65,7 +63,7 @@
 						<select id="grapeVariety" name="grapeVariety" value="tableName">
 							<?php
 
-							$result = mysql_query("SELECT wine_id, wine_name, year FROM wine ");
+							$result = mysql_query("SELECT variety FROM grape_variety ");
 
 							while($row = mysql_fetch_row($result)) {
 								$tableName = $row[0];

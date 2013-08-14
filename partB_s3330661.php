@@ -51,10 +51,10 @@
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
-							while($row = @ mysql_fetch_row($result)) 
+							while($row = mysql_fetch_array($result)) 
 							{
 								$tableName = $row["region_id"];
-								echo '<option value="$tableName"/>';
+								echo '<option value="$tableName">$tableName</option>';
 							}
 							?>
 						</select>
@@ -64,12 +64,12 @@
 						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
 							<?php
 
-							$result = @ mysql_query("SELECT variety FROM grape_variety ");
+							$result = mysql_query("SELECT variety FROM grape_variety ");
 
-							while($row = mysql_fetch_row($result)) 
+							while($row = mysql_fetch_array($result)) 
 							{
 								$tableName = $row["variety_id"];
-								echo '<option value="$tableName/>';
+								echo '<option value="$tableName">$tableName</option>';
 							} 
 							?>
 						</select>

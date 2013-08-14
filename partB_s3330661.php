@@ -47,15 +47,30 @@
 					<td> Region: </td>
 					<td>
 						<select id="region" name="region" value="region">
+							// <?php
+
+							// $result = mysql_query("SELECT region_name FROM region ");
+
+							// while($row = mysql_fetch_row($result)) 
+							// {
+							// 	$tableName = $row[0];
+							// 	echo '<option value="$tableName">$tableName</option>';
+							// }
+							// ?>
+
 							<?php
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
-							while($row = mysql_fetch_row($result)) 
+							if (!$result) 
 							{
-								$tableName = $row[0];
-								echo '<option value="$tableName">$tableName</option>';
+								echo 'Could not run query: ' . mysql_error();
+								exit;
 							}
+							$row = mysql_fetch_row($result);
+
+							echo $row[0]; // 
+							echo $row[1]; // 
 							?>
 						</select>
 					</td>

@@ -6,9 +6,6 @@
 		border:1px solid green;
 	}
 	</style>
-</head>
-
-<body>
 
 	<?php
 
@@ -28,6 +25,11 @@
 	mysql_select_db('winestore');
 
 	?>
+</head>
+
+<body>
+
+
 
 	<div id="main">
 		<h1>Welcome to the Alpha Tool</h1>

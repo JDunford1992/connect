@@ -55,7 +55,7 @@
 							while($row = mysql_fetch_row($result)) 
 							{
 								$tableName = $row[0];
-								echo '<option value=$tableName>$tableName</option>';
+								echo '<option value="$tableName">$tableName</option>';
 							}
 							?>
 
@@ -71,7 +71,7 @@
 							while($row = mysql_fetch_row($result)) 
 							{
 								$tableName = $row[0];
-								echo '<option value=$tableName>$tableName</option>';
+								echo '<option value="$tableName">$tableName</option>';
 							} 
 							?>
 						</select>

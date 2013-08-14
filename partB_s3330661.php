@@ -52,7 +52,7 @@
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
-							while($row = mysql_fetch_row($result)) {
+							while($row = mysql_fetch_array($result)) {
 								
 							?>
 
@@ -61,7 +61,7 @@
 							<?php
 
 							}
-							
+
 							?>
 
 						</select>

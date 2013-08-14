@@ -52,7 +52,7 @@
 							$result = mysql_query("SELECT region_name FROM region ");
 
 							while($row = mysql_fetch_row($result)) {
-								$tableName = $row['region_name'];
+								$tableName = $row[region_name];
 								echo '<option value=$tableName>R1</option>';
 							} 
 							?>

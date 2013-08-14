@@ -51,10 +51,11 @@
 
 							$result = mysql_query("SELECT region_name FROM region ");
 
-							while($row = mysql_fetch_row($result)) {
+							while($row = mysql_fetch_row($result)) 
+							{
 								$tableName = $row[0];
 								echo '<option value="$tableName">$tableName</option>';
-							} 
+							}
 							?>
 						</select>
 					</td>

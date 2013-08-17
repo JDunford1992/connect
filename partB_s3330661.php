@@ -200,7 +200,7 @@ AND wine.winery_id = winery.winery_id";
   if (isset($nameWine) && $nameWine != "All") {
     $query .= " AND wine_name = '{$nameWine}'";
   }
-  else if (isset($nameWinery) && $nameWinery != "All") {
+  AND if (isset($nameWinery) && $nameWinery != "All") {
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 

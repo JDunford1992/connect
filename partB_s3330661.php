@@ -89,6 +89,51 @@
 				</tr>
 
 				<tr>
+					<td> Range of Years (MIN): </td>
+					<td>
+						<select id="yearLow" name="yearLow" value="yearLow">
+							
+							<?php
+
+							$result = mysql_query("SELECT year FROM wine ");
+
+							while($row = mysql_fetch_array($result)) {
+								
+							?>
+
+							<option value="$tableName"><?php echo $row["year"]?></option>;
+
+							<?php
+
+							}
+
+							?>
+
+						</select>
+					</td>
+					<td> Range of Years (MAX): </td>
+					<td>
+						<select id="yearMax" name="yearMax" value="yearMax">
+							<?php
+
+							$result = mysql_query("SELECT year FROM wine ");
+
+							while($row = mysql_fetch_array($result)) {
+								
+							?>
+
+							<option value="$tableName"><?php echo $row["year"]?></option>;
+
+							<?php
+
+							}
+
+							?>
+						</select>
+					</td>
+				</tr>
+
+				<tr>
 					<td> $ Cost Range: </td>
 					<td>
 						Min = <input id="costMin" name="costMin" type="text" value="">

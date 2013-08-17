@@ -201,39 +201,39 @@ AND wine.wine_id = inventory.wine_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
-  if (isset($nameWine) && $nameWine != "All") {
+  if (isset($nameWine)) {
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
-  if (isset($nameWinery) && $nameWinery != "All") {
+  if (isset($nameWinery) ) {
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 
-  if (isset($region) && $region != "All") {
+  if (isset($region)) {
     $query .= " AND region = '{$region}'";
   }
 
-  if (isset($grapeVariety) && $grapeVariety != "All") {
+  if (isset($grapeVariety)) {
     $query .= " AND variety = '{$grapeVariety}'";
   }
 
-  if (isset($yearLow) && $yearLow != "All") {
+  if (isset($yearLow) ) {
     $query .= " AND year >= '{$yearLow}'";
   }
 
-  if (isset($yearMax) && $yearMax != "All") {
+  if (isset($yearMax)) {
     $query .= " AND year <= '{$yearMax}'";
   }
 
-  if (isset($costMin) && $costMin != "All") {
+  if (isset($costMin) ) {
     $query .= " AND cost >= '{$costMin}'";
   }
 
-  if (isset($costMax) && $costMax != "All") {
+  if (isset($costMax) ) {
     $query .= " AND cost <= '{$costMax}'";
   }
 
-  if (isset($minStock) && $minStock != "All") {
+  if (isset($minStock)) {
     $query .= " AND on_hand >= '{$minStock}'";
   }
 

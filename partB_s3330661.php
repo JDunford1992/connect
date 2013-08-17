@@ -130,7 +130,8 @@
   require 'db.php';
 
   // Show all wines in a region in a <table>
-  function displayWinesList($connection, $query, $nameWine) {
+  function displayWinesList($connection, $query, $nameWine, $nameWinery, $region, $grapeVariety, 
+  	$yearLow, $yearMax, $costMin, $costMax, $minStock) {
     // Run the query on the server
     if (!($result = @ mysql_query ($query, $connection))) {
       showerror();
@@ -192,10 +193,11 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine_id, wine_name, description, year, winery_name
-FROM winery, region, wine
+  $query = "SELECT wine_id, wine_name, description, year, winery_name, cost, on_hand
+FROM winery, region, wine, inventory
 WHERE winery.region_id = region.region_id
-AND wine.winery_id = winery.winery_id";
+AND wine.winery_id = winery.winery_id
+AND wine.wine_id = inventory.wine_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
@@ -203,11 +205,44 @@ AND wine.winery_id = winery.winery_id";
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
+  if (isset($nameWinery) && $nameWinery != "All") {
+    $query .= " AND winery_name = '{$nameWinery}'";
+  }
+
+  if (isset($region) && $region != "All") {
+    $query .= " AND region = '{$region}'";
+  }
+
+  if (isset($grapeVariety) && $grapeVariety != "All") {
+    $query .= " AND variety = '{$grapeVariety}'";
+  }
+
+  if (isset($yearLow) && $yearLow != "All") {
+    $query .= " AND year >= '{$yearLow}'";
+  }
+
+  if (isset($yearMax) && $yearMax != "All") {
+    $query .= " AND year <= '{$yearMax}'";
+  }
+
+  if (isset($costMin) && $costMin != "All") {
+    $query .= " AND cost >= '{$costMin}'";
+  }
+
+  if (isset($costMax) && $costMax != "All") {
+    $query .= " AND cost <= '{$costMax}'";
+  }
+
+  if (isset($minStock) && $minStock != "All") {
+    $query .= " AND on_hand >= '{$minStock}'";
+  }
+
   // ... and then complete the query.
   $query .= " ORDER BY year";
 
   // run the query and show the results
-  displayWinesList($connection, $query, $nameWine);
+  displayWinesList($connection, $query, $nameWine, $nameWinery, $region, $grapeVariety, 
+  	$yearLow, $yearMax, $costMin, $costMax, $minStock);
 ?>
 
 </body>

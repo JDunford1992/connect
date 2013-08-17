@@ -41,7 +41,7 @@
 				<tr>
 					<td> Region: </td>
 					<td>
-						<select id="region" name="region" value="">							
+						<select id="region" name="region" value="region">							
 							<?php
 							$result = mysql_query("SELECT region_name FROM region ");
 							while($row = mysql_fetch_array($result)) {
@@ -54,7 +54,7 @@
 					</td>
 					<td> Grape Variety: </td>
 					<td>
-						<select id="grapeVariety" name="grapeVariety" value="">
+						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
 							<?php
 							$result = mysql_query("SELECT variety FROM grape_variety ");
 							while($row = mysql_fetch_array($result)) {
@@ -70,7 +70,7 @@
 				<tr>
 					<td> Range of Years (MIN): </td>
 					<td>
-						<select id="yearLow" name="yearLow" value="">
+						<select id="yearLow" name="yearLow" value="yearLow">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -83,7 +83,7 @@
 					</td>
 					<td> Range of Years (MAX): </td>
 					<td>
-						<select id="yearMax" name="yearMax" value="">
+						<select id="yearMax" name="yearMax" value="yearMax">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -193,7 +193,7 @@
 
   // Start a query ...
   $query = "SELECT wine_id, wine_name, description, year, winery_name
-FROM winery, region, wine, inventory
+FROM winery, region, wine
 WHERE winery.region_id = region.region_id
 AND wine.winery_id = winery.winery_id";
 

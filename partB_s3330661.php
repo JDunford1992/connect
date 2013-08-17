@@ -197,13 +197,13 @@ AND wine.winery_id = winery.winery_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
-  if (isset($nameWine) ) {
+  if (isset($nameWine) && $nameWine != "All") {
     $query .= " AND wine_name = '{$nameWine}'";
-  }
 
-  if (isset($nameWinery)) {
-    $query .= " AND winery_name = '{$nameWinery}'";
-  }
+    if (isset($nameWinery) && $nameWinery != "All") {
+    	$query .= " AND winery_name = '{$nameWinery}'";
+    }
+}
 
   // ... and then complete the query.
   $query .= " ORDER BY year";

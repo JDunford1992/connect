@@ -9,24 +9,19 @@
 </head>
 
 <body>
-
 	<?php
-
 	require_once('db.php');
 	if(!$dbconn = mysql_connect(DB_HOST, DB_USER, DB_PW)) 
 	{
 		echo 'Could not connect to mysql on ' . DB_HOST . '\n';
 		exit; 
 	}
-
 	if(!mysql_select_db(DB_NAME, $dbconn)) 
 	{
 		echo 'Could not user database ' . DB_NAME . '\n'; echo mysql_error() . '\n';
 		exit;
 	}
-
 	mysql_select_db('winestore');
-
 	?>
 
 	<div id="main">
@@ -46,43 +41,27 @@
 				<tr>
 					<td> Region: </td>
 					<td>
-						<select id="region" name="region" value="region">
-							
+						<select id="region" name="region" value="region">							
 							<?php
-
 							$result = mysql_query("SELECT region_name FROM region ");
-
 							while($row = mysql_fetch_array($result)) {
-								
 							?>
-
 							<option value="$tableName"><?php echo $row["region_name"]?></option>;
-
 							<?php
-
 							}
-
 							?>
-
 						</select>
 					</td>
 					<td> Grape Variety: </td>
 					<td>
 						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
 							<?php
-
 							$result = mysql_query("SELECT variety FROM grape_variety ");
-
 							while($row = mysql_fetch_array($result)) {
-								
 							?>
-
 							<option value="$tableName"><?php echo $row["variety"]?></option>;
-
 							<?php
-
 							}
-
 							?>
 						</select>
 					</td>
@@ -92,42 +71,26 @@
 					<td> Range of Years (MIN): </td>
 					<td>
 						<select id="yearLow" name="yearLow" value="yearLow">
-							
 							<?php
-
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
-
 							while($row = mysql_fetch_array($result)) {
-								
 							?>
-
 							<option value="$tableName"><?php echo $row["year"]?></option>;
-
 							<?php
-
 							}
-
 							?>
-
 						</select>
 					</td>
 					<td> Range of Years (MAX): </td>
 					<td>
 						<select id="yearMax" name="yearMax" value="yearMax">
 							<?php
-
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
-
 							while($row = mysql_fetch_array($result)) {
-								
 							?>
-
 							<option value="$tableName"><?php echo $row["year"]?></option>;
-
 							<?php
-
 							}
-
 							?>
 						</select>
 					</td>
@@ -135,18 +98,14 @@
 
 				<tr>
 					<td> $ Cost Range: </td>
-					<td>
-						Min = <input id="costMin" name="costMin" type="text" value="">
-					</td>
-					<td>
-						Max = <input id="costMax" name="costMax" type="text" value="">
-					</td>
+					<td> Min ($) = <input id="costMin" name="costMin" type="text" value=""> </td>
+					<td> Max ($) = <input id="costMax" name="costMax" type="text" value=""> </td>
 				</tr>
 
 				<tr>
-					<td> Min No of Wines Stock: </td>
+					<td> Min Wines (Stock): </td>
 					<td> <input id="minStock" name="minStock" type="text" value=""> </td>
-					<td> Min No of Wines Ordered: </td>
+					<td> Min Wines (Ordered): </td>
 					<td> <input id="minOrder" name="minOrder" type="text" value=""> </td>
 				</tr>
 
@@ -159,6 +118,97 @@
 
 		<h3><i>-Comments Created By Jasio Dunford</i></h3>
 	</div>
+
+	//////////////////////////////PHP CODE TO DISPLAY THE QUERY RESULTS//////////////////////////////
+
+	<?php
+
+  function showerror() {
+     die("Error " . mysql_errno() . " : " . mysql_error());
+  }
+
+  require 'db.php';
+
+  // Show all wines in a region in a <table>
+  function displayWinesList($connection, $query, $nameWine) {
+    // Run the query on the server
+    if (!($result = @ mysql_query ($query, $connection))) {
+      showerror();
+    }
+
+    // Find out how many rows are available
+    $rowsFound = @ mysql_num_rows($result);
+
+    // If the query has results ...
+    if ($rowsFound > 0) {
+      // ... print out a header
+      print "Wines of $nameWine<br>";
+
+      // and start a <table>.
+      print "\n<table>\n<tr>" .
+          "\n\t<th>Wine ID</th>" .
+          "\n\t<th>Wine Name</th>" .
+          "\n\t<th>Year</th>" .
+          "\n\t<th>Winery</th>" .
+          "\n\t<th>Description</th>\n</tr>";
+
+      // Fetch each of the query rows
+      while ($row = @ mysql_fetch_array($result)) {
+        // Print one row of results
+        print "\n<tr>\n\t<td>{$row["wine_id"]}</td>" .
+            "\n\t<td>{$row["wine_name"]}</td>" .
+            "\n\t<td>{$row["year"]}</td>" .
+            "\n\t<td>{$row["winery_name"]}</td>" .
+            "\n\t<td>{$row["description"]}</td>\n</tr>";
+      } // end while loop body
+
+      // Finish the <table>
+      print "\n</table>";
+    } // end if $rowsFound body
+
+    // Report how many rows were found
+    print "{$rowsFound} records found matching your criteria<br>";
+  } // end of function
+
+  // Connect to the MySQL server
+  if (!($connection = @ mysql_connect(DB_HOST, DB_USER, DB_PW))) {
+    die("Could not connect");
+  }
+
+  // get the user data
+  $nameWine = $_GET['nameWine'];
+  $nameWinery = $_GET['nameWinery'];
+  $region = $_GET['region'];
+  $grapeVariety = $_GET['grapeVariety'];
+  $yearLow = $_GET['yearLow'];
+  $yearMax = $_GET['yearMax'];
+  $costMin = $_GET['costMin'];
+  $costMax = $_GET['costMax'];
+  $minStock = $_GET['minStock'];
+  $minOrder = $_GET['minOrder'];
+
+  if (!mysql_select_db(DB_NAME, $connection)) {
+    showerror();
+  }
+
+  // Start a query ...
+  $query = "SELECT wine_id, wine_name, description, year, winery_name
+FROM winery, region, wine
+WHERE winery.region_id = region.region_id
+AND wine.winery_id = winery.winery_id";
+
+  // ... then, if the user has specified a region, add the regionName
+  // as an AND clause ...
+  if (isset($nameWine) && $nameWine != "All") {
+    $query .= " AND wine_name = '{$nameWine}'";
+  }
+
+  // ... and then complete the query.
+  $query .= " ORDER BY year";
+
+  // run the query and show the results
+  displayWinesList($connection, $query, $nameWine);
+?>
 
 </body>
 <footer></footer>

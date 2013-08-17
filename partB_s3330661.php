@@ -149,8 +149,7 @@
           "\n\t<th>Wine ID</th>" .
           "\n\t<th>Wine Name</th>" .
           "\n\t<th>Year</th>" .
-          "\n\t<th>Winery</th>" .
-          "\n\t<th>Description</th>\n</tr>";
+          "\n\t<th>Winery</th>";
 
       // Fetch each of the query rows
       while ($row = @ mysql_fetch_array($result)) {
@@ -158,8 +157,7 @@
         print "\n<tr>\n\t<td>{$row["wine_id"]}</td>" .
             "\n\t<td>{$row["wine_name"]}</td>" .
             "\n\t<td>{$row["year"]}</td>" .
-            "\n\t<td>{$row["winery_name"]}</td>" .
-            "\n\t<td>{$row["description"]}</td>\n</tr>";
+            "\n\t<td>{$row["winery_name"]}</td>" .;
       } // end while loop body
 
       // Finish the <table>

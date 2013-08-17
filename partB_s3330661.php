@@ -95,7 +95,7 @@
 							
 							<?php
 
-							$result = mysql_query("SELECT year FROM wine ");
+							$result = mysql_query("SELECT year FROM wine ORDER BY `year` ASC ");
 
 							while($row = mysql_fetch_array($result)) {
 								

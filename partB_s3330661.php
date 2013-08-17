@@ -204,38 +204,6 @@ AND wine.winery_id = winery.winery_id";
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
-  if (isset($nameWinery) && $nameWinery != "All") {
-    $query .= " AND winery_name = '{$nameWinery}'";
-  }
-
-  if (isset($region) && $region != "All") {
-    $query .= " AND region = '{$region}'";
-  }
-
-  if (isset($grapeVariety) && $grapeVariety != "All") {
-    $query .= " AND variety = '{$grapeVariety}'";
-  }
-
-  if (isset($yearLow) && $yearLow != "All") {
-    $query .= " AND year >= '{$yearLow}'";
-  }
-
-  if (isset($yearMax) && $yearMax != "All") {
-    $query .= " AND year <= '{$yearMax}'";
-  }
-
-  if (isset($costMin) && $costMin != "All") {
-    $query .= " AND cost >= '{$costMin}'";
-  }
-
-  if (isset($costMax) && $costMax != "All") {
-    $query .= " AND cost <= '{$costMax}'";
-  }
-
-  if (isset($minStock) && $minStock != "All") {
-    $query .= " AND on_hand >= '{$minStock}'";
-  }
-
   // ... and then complete the query.
   $query .= " ORDER BY year";
 

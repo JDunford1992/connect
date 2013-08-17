@@ -192,7 +192,6 @@
   // Start a query ...
   $query = "SELECT wine_id, wine_name, year, winery_name
 FROM winery, region, wine
-WHERE winery.region_id = region.region_id
 AND wine.winery_id = winery.winery_id";
 
   // ... then, if the user has specified a region, add the regionName

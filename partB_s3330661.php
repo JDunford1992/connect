@@ -130,7 +130,7 @@
   require 'db.php';
 
   // Show all wines in a region in a <table>
-  function displayWinesList($connection, $query, $nameWine) {
+  function displayWinesList($connection, $query, $nameWine, $nameWinery) {
     // Run the query on the server
     if (!($result = @ mysql_query ($query, $connection))) {
       showerror();
@@ -201,11 +201,15 @@ AND wine.winery_id = winery.winery_id";
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
+  if (isset($nameWinery) && $nameWinery != "All") {
+    $query .= " AND winery_name = '{$nameWinery}'";
+  }
+
   // ... and then complete the query.
   $query .= " ORDER BY year";
 
   // run the query and show the results
-  displayWinesList($connection, $query, $nameWine);
+  displayWinesList($connection, $query, $nameWine, $nameWinery);
 ?>
 
 </body>

@@ -149,7 +149,7 @@
           "\n\t<th>Wine ID</th>" .
           "\n\t<th>Wine Name</th>" .
           "\n\t<th>Year</th>" .
-          "\n\t<th>Winery</th>";
+          "\n\t<th>Winery</th>\n</tr>";
 
       // Fetch each of the query rows
       while ($row = @ mysql_fetch_array($result)) {
@@ -157,7 +157,7 @@
         print "\n<tr>\n\t<td>{$row["wine_id"]}</td>" .
             "\n\t<td>{$row["wine_name"]}</td>" .
             "\n\t<td>{$row["year"]}</td>" .
-            "\n\t<td>{$row["winery_name"]}</td>" .;
+            "\n\t<td>{$row["winery_name"]}</td>\n</tr>";
       } // end while loop body
 
       // Finish the <table>
@@ -190,7 +190,7 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine_id, wine_name, description, year, winery_name
+  $query = "SELECT wine_id, wine_name, year, winery_name
 FROM winery, region, wine
 WHERE winery.region_id = region.region_id
 AND wine.winery_id = winery.winery_id";

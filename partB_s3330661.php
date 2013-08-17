@@ -95,7 +95,7 @@
 							
 							<?php
 
-							$result = mysql_query("SELECT year FROM wine ORDER BY `year` ASC ");
+							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 
 							while($row = mysql_fetch_array($result)) {
 								
@@ -116,7 +116,7 @@
 						<select id="yearMax" name="yearMax" value="yearMax">
 							<?php
 
-							$result = mysql_query("SELECT year FROM wine ");
+							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 
 							while($row = mysql_fetch_array($result)) {
 								

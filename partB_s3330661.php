@@ -199,11 +199,11 @@ AND wine.winery_id = winery.winery_id";
   // as an AND clause ...
   if (isset($nameWine) && $nameWine != "All") {
     $query .= " AND wine_name = '{$nameWine}'";
+  }
 
-    else if (isset($nameWinery) && $nameWinery != "All") {
-    	$query .= " AND winery_name = '{$nameWinery}'";
-    }
-}
+  if (isset($nameWinery) && $nameWinery != "All") {
+    $query .= " AND winery_name = '{$nameWinery}'";
+  }
 
   // ... and then complete the query.
   $query .= " ORDER BY year";

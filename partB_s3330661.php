@@ -192,7 +192,7 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine_id, wine_name, description, year, winery_name, cost, on_hand
+  $query = "SELECT wine_id, wine_name, description, year, winery_name
 FROM winery, region, wine, inventory
 WHERE winery.region_id = region.region_id
 AND wine.winery_id = winery.winery_id";

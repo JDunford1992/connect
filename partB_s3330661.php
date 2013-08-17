@@ -191,8 +191,7 @@
 
   // Start a query ...
   $query = "SELECT wine_id, wine_name, year, winery_name
-FROM winery, region, wine
-AND wine.winery_id = winery.winery_id";
+FROM winery, region, wine";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...

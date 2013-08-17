@@ -191,14 +191,17 @@
 
   // Start a query ...
   $query = "SELECT wine_id, wine_name, year, winery_name
-FROM winery, region, wine";
+FROM winery, region, wine
+WHERE winery.region_id = region.region_id
+AND wine.winery_id = winery.winery_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
-  if (isset($nameWine) && $nameWine != "All") {
+  if (isset($nameWine) ) {
     $query .= " AND wine_name = '{$nameWine}'";
   }
-  if (isset($nameWinery) && $nameWinery != "All") {
+
+  if (isset($nameWinery)) {
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 

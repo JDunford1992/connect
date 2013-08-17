@@ -41,7 +41,7 @@
 				<tr>
 					<td> Region: </td>
 					<td>
-						<select id="region" name="region" value="region">							
+						<select id="region" name="region" value="">							
 							<?php
 							$result = mysql_query("SELECT region_name FROM region ");
 							while($row = mysql_fetch_array($result)) {
@@ -54,7 +54,7 @@
 					</td>
 					<td> Grape Variety: </td>
 					<td>
-						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
+						<select id="grapeVariety" name="grapeVariety" value="">
 							<?php
 							$result = mysql_query("SELECT variety FROM grape_variety ");
 							while($row = mysql_fetch_array($result)) {
@@ -70,7 +70,7 @@
 				<tr>
 					<td> Range of Years (MIN): </td>
 					<td>
-						<select id="yearLow" name="yearLow" value="yearLow">
+						<select id="yearLow" name="yearLow" value="">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -83,7 +83,7 @@
 					</td>
 					<td> Range of Years (MAX): </td>
 					<td>
-						<select id="yearMax" name="yearMax" value="yearMax">
+						<select id="yearMax" name="yearMax" value="">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -196,44 +196,43 @@
   $query = "SELECT wine_id, wine_name, description, year, winery_name, cost, on_hand
 FROM winery, region, wine, inventory
 WHERE winery.region_id = region.region_id
-AND wine.winery_id = winery.winery_id
-AND wine.wine_id = inventory.wine_id";
+AND wine.winery_id = winery.winery_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
-  if (isset($nameWine)) {
+  if (isset($nameWine) && $nameWine != "All") {
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
-  if (isset($nameWinery) ) {
+  if (isset($nameWinery) && $nameWinery != "All") {
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 
-  if (isset($region)) {
+  if (isset($region) && $region != "All") {
     $query .= " AND region = '{$region}'";
   }
 
-  if (isset($grapeVariety)) {
+  if (isset($grapeVariety) && $grapeVariety != "All") {
     $query .= " AND variety = '{$grapeVariety}'";
   }
 
-  if (isset($yearLow) ) {
+  if (isset($yearLow) && $yearLow != "All") {
     $query .= " AND year >= '{$yearLow}'";
   }
 
-  if (isset($yearMax)) {
+  if (isset($yearMax) && $yearMax != "All") {
     $query .= " AND year <= '{$yearMax}'";
   }
 
-  if (isset($costMin) ) {
+  if (isset($costMin) && $costMin != "All") {
     $query .= " AND cost >= '{$costMin}'";
   }
 
-  if (isset($costMax) ) {
+  if (isset($costMax) && $costMax != "All") {
     $query .= " AND cost <= '{$costMax}'";
   }
 
-  if (isset($minStock)) {
+  if (isset($minStock) && $minStock != "All") {
     $query .= " AND on_hand >= '{$minStock}'";
   }
 

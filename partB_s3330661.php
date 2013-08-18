@@ -151,7 +151,11 @@
           "\n\t<th>Grape Variety</th>" .
           "\n\t<th>Year</th>" .
           "\n\t<th>Winery Name</th>" .
-          "\n\t<th>Region</th>\n</tr>";
+          "\n\t<th>Region</th>" .
+          "\n\t<th>Cost per Bottle</th>" .
+          "\n\t<th>Stock On Hand</th>" .
+          "\n\t<th>Sum Sold Quantity</th>" .
+          "\n\t<th>Sum Sold Items</th>\n</tr>";
 
       // Fetch each of the query rows
       while ($row = @ mysql_fetch_array($result)) {
@@ -161,7 +165,11 @@
             "\n\t<td>{$row["variety"]}</td>" .
             "\n\t<td>{$row["year"]}</td>" .
             "\n\t<td>{$row["winery_name"]}</td>" .
-            "\n\t<td>{$row["region_name"]}</td>\n</tr>";
+            "\n\t<td>{$row["region_name"]}</td>" .
+            "\n\t<td>{$row["cost"]}</td>" .
+            "\n\t<td>{$row["on_hand"]}</td>" .
+            "\n\t<td>{$row["qty"]}</td>" .
+            "\n\t<td>{$row["price"]}</td>\n</tr>";
       } // end while loop body
 
       // Finish the <table>
@@ -195,8 +203,9 @@
 
   // Start a query ...
   $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
-  wine.year, winery.winery_name, region.region_name
-  FROM winery, grape_variety, region, wine
+  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand, 
+  SUM(items.qty), SUM(items.price)
+  FROM winery, grape_variety, region, wine, items
   WHERE winery.region_id = region.region_id
   AND wine.winery_id = winery.winery_id";
 

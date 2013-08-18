@@ -148,16 +148,20 @@
       print "\n<table>\n<tr>" .
           "\n\t<th>Wine ID</th>" .
           "\n\t<th>Wine Name</th>" .
+          "\n\t<th>Grape Variety</th>" .
           "\n\t<th>Year</th>" .
-          "\n\t<th>Winery</th>\n</tr>";
+          "\n\t<th>Winery Name</th>" .
+          "\n\t<th>Region</th>\n</tr>";
 
       // Fetch each of the query rows
       while ($row = @ mysql_fetch_array($result)) {
         // Print one row of results
         print "\n<tr>\n\t<td>{$row["wine_id"]}</td>" .
             "\n\t<td>{$row["wine_name"]}</td>" .
+            "\n\t<td>{$row["variety"]}</td>" .
             "\n\t<td>{$row["year"]}</td>" .
-            "\n\t<td>{$row["winery_name"]}</td>\n</tr>";
+            "\n\t<td>{$row["winery_name"]}</td>" .
+            "\n\t<td>{$row["region_name"]}</td>\n</tr>";
       } // end while loop body
 
       // Finish the <table>
@@ -190,10 +194,11 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine_id, wine_name, year, winery_name
-FROM winery, region, wine
-WHERE winery.region_id = region.region_id
-AND wine.winery_id = winery.winery_id";
+  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
+  wine.year, winery.winery_name, region.region_name
+  FROM winery, grape_variety, region, wine
+  WHERE winery.region_id = region.region_id
+  AND wine.winery_id = winery.winery_id";
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
@@ -206,7 +211,7 @@ AND wine.winery_id = winery.winery_id";
   }
 
   // ... and then complete the query.
-  $query .= " ORDER BY year";
+  $query .= " ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine, $nameWinery);

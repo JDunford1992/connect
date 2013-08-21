@@ -96,7 +96,7 @@
   wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
   FROM winery, wine, wine_variety, region, inventory, grape_variety, items
   WHERE winery.winery_id = wine.winery_id
-  AND winery.winery_id = region.region_id
+  AND winery.region_id = region.region_id
   AND wine.wine_id = inventory.wine_id
   AND wine.wine_id = items.wine_id
   AND wine.wine_id = wine_variety.wine_id

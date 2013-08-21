@@ -108,9 +108,9 @@
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
 
-  if (isset($nameWine) && $nameWine != "All") {
-    $query .= " WHERE wine_name = '{$nameWine}'";
-  }
+  // if (isset($nameWine) && $nameWine != "All") {
+  //   $query .= " WHERE wine_name = '{$nameWine}'";
+  // }
 
   // if (isset($nameWinery) && $nameWinery != "All") {
   //   $query .= " AND winery_name = '{$nameWinery}'";

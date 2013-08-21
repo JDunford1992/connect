@@ -20,7 +20,7 @@
   require 'db.php';
 
   // Show all wines in a region in a <table>
-  function displayWinesList($connection, $query) {
+  function displayWinesList($connection, $query, $nameWine) {
     // Run the query on the server
     if (!($result = @ mysql_query ($query, $connection))) {
       showerror();
@@ -105,13 +105,49 @@
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
 
+  if (isset($nameWine) && $nameWine != "All") {
+    $query .= " AND wine_name = '{$nameWine}'";
+  }
+
+  // if (isset($nameWinery) && $nameWinery != "All") {
+  //   $query .= " AND winery_name = '{$nameWinery}'";
+  // }
+
+  // if (isset($region) && $region != "All") {
+  //   $query .= " AND region = '{$region}'";
+  // }
+
+  // if (isset($grapeVariety) && $grapeVariety != 1) {
+  //   $query .= " AND variety = '{$grapeVariety}'";
+  // }
+
+  // if (isset($yearLow) && $yearLow != "All") {
+  //   $query .= " AND year >= '{$yearLow}'";
+  // }
+
+  // if (isset($yearMax) && $yearMax != "All") {
+  //   $query .= " AND year <= '{$yearMax}'";
+  // }
+
+  // if (isset($costMin) && $costMin != "All") {
+  //   $query .= " AND cost >= '{$costMin}'";
+  // }
+
+  // if (isset($costMax) && $costMax != "All") {
+  //   $query .= " AND cost <= '{$costMax}'";
+  // }
+
+  // if (isset($minStock) && $minStock != "All") {
+  //   $query .= " AND on_hand >= '{$minStock}'";
+  // }
+
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
   $query .= " ORDER BY wine_id";
 
   // run the query and show the results
-  displayWinesList($connection, $query);
+  displayWinesList($connection, $query, $nameWine);
 ?>
 
 </body>

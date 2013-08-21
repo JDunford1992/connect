@@ -204,7 +204,7 @@
   // Start a query ...
   $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name
-  FROM winery, grape_variety, region
+  FROM winery, grape_variety, region, wine
   WHERE winery.region_id = region.region_id
   AND wine.winery_id = winery.winery_id";
 

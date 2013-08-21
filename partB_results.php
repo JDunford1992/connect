@@ -20,7 +20,7 @@
   require 'db.php';
 
   // Show all wines in a region in a <table>
-  function displayWinesList($connection, $query, $nameWine) {
+  function displayWinesList($connection, $query, $nameWine, $grapeVariety) {
     // Run the query on the server
     if (!($result = @ mysql_query ($query, $connection))) {
       showerror();
@@ -150,7 +150,7 @@
   $query .= " ORDER BY wine_id";
 
   // run the query and show the results
-  displayWinesList($connection, $query, $nameWine);
+  displayWinesList($connection, $query, $nameWine, $grapeVariety);
 ?>
 
 </body>

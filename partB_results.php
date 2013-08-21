@@ -116,7 +116,7 @@
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 
-  if (isset($region) && $region != "$tableName") {
+  if (isset($region) && $region != 1) {
     $query .= " AND region = '{$region}'";
   }
 

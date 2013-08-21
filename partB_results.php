@@ -115,7 +115,7 @@ partB_results.php
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 
-  if (isset($region) && $region != 1) {
+  if (isset($region) && $region != "All") {
     $query .= " AND region = '{$region}'";
   }
 

@@ -33,9 +33,9 @@
 			<table style="border-style:solid;border-width:5px;">
 				<tr> 
 					<td> Name of Wine: </td>
-					<td> <input id="nameWine" name="nameWine" type="text" value=""> </td>
+					<td> <input id="nameWine" name="nameWine" type="text" value="All"> </td>
 					<td> Name of Winery: </td>
-					<td> <input id="nameWinery" name="nameWinery" type="text" value=""> </td>
+					<td> <input id="nameWinery" name="nameWinery" type="text" value="All"> </td>
 				</tr>
 
 				<tr>

@@ -121,7 +121,7 @@
   }
 
   if (isset($grapeVariety) && $grapeVariety != 1) {
-    $query .= " AND variety.variety_id = '{$grapeVariety}'";
+    $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
   // if (isset($yearLow) && $yearLow != "All") {

@@ -93,14 +93,14 @@
   // Start a query ...
   $query = "SELECT wine_id, wine_name, variety, 
   year, winery_name, region_name, cost, on_hand, SUM(qty), SUM(price)
-  
+
   FROM winery 
-  NATURAL JOIN grape_variety
-  NATURAL JOIN region
-  NATURAL JOIN wine
-  NATURAL JOIN items
-  NATURAL JOIN inventory
-  NATURAL JOIN wine_variety";
+  NATURAL JOIN grape_variety BY variety_id
+  NATURAL JOIN region BY region_id
+  NATURAL JOIN wine BY wine_id
+  NATURAL JOIN items BY wine_id
+  NATURAL JOIN inventory BY wine_id
+  NATURAL JOIN wine_variety BY wine_id";
 
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER

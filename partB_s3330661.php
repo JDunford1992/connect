@@ -59,6 +59,7 @@
 							$result = mysql_query("SELECT variety, variety_id FROM grape_variety ");
 							while($row = mysql_fetch_array($result)) {
 							?>
+							<option value="All"><option>;
 							<option value=<?php echo $row["variety_id"]?>><?php echo $row["variety"]?></option>;
 							<?php
 							}

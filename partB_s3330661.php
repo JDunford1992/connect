@@ -46,7 +46,7 @@
 							$result = mysql_query("SELECT region_name, region_id FROM region ");
 							while($row = mysql_fetch_array($result)) {
 							?>
-							<option value="$tableName"><?php echo $row["region_name"]?></option>;
+							<option value="<?php echo $row["region_id"]?>"><?php echo $row["region_name"]?></option>;
 							<?php
 							}
 							?>

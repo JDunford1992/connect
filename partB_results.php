@@ -93,13 +93,15 @@
   // Start a query ...
   $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name, region.region_name, inventory.cost
-  -- , inventory.on_hand, 
-  -- SUM(items.qty), SUM(items.price)
-  FROM winery, grape_variety, region, wine, items, inventory, wine_variety
-  WHERE winery.region_id = region.region_id
-  AND wine.winery_id = winery.winery_id
-  AND wine.wine_id = inventory.wine_id
-  AND wine.wine_id = wine_variety.wine_id";
+
+  FROM winery 
+  NATURAL JOIN grape_variety
+  NATURAL JOIN region
+  NATURAL JOIN wine
+  NATURAL JOIN items
+  NATURAL JOIN inventory
+  NATURAL JOIN wine_variety";
+
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 
@@ -145,7 +147,7 @@
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
-  $query .= " ORDER BY wine_id";
+  $query .= "ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

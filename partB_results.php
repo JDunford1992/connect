@@ -120,9 +120,9 @@
   //   $query .= " AND region = '{$region}'";
   // }
 
-  if (isset($grapeVariety) && $grapeVariety != 1) {
-    $query .= " AND variety = '{$grapeVariety}'";
-  }
+  // if (isset($grapeVariety) && $grapeVariety != 1) {
+  //   $query .= " AND variety = '{$grapeVariety}'";
+  // }
 
   // if (isset($yearLow) && $yearLow != "All") {
   //   $query .= " AND year >= '{$yearLow}'";

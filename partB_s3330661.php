@@ -203,21 +203,19 @@
 
   // Start a query ...
   $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
-  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
-  FROM winery, grape_variety, region, wine, items, inventory
-  WHERE winery.region_id = region.region_id
-  AND wine.winery_id = winery.winery_id";
+  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand, 
+  SUM(items.qty), SUM(items.price)
+  FROM winery, grape_variety, region, wine, items, inventory";
 
-// SUM(items.qty), SUM(items.price)
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
   if (isset($nameWine) && $nameWine != "All") {
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
-  if (isset($nameWinery) && $nameWinery != "All") {
-    $query .= " AND winery_name = '{$nameWinery}'";
-  }
+  // if (isset($nameWinery) && $nameWinery != "All") {
+  //   $query .= " AND winery_name = '{$nameWinery}'";
+  // }
 
   // ... and then complete the query.
   $query .= " ORDER BY wine_id";

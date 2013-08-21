@@ -94,11 +94,14 @@
   // Start a query ...
   $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
-  FROM winery, grape_variety, region, wine, inventory, wine_variety
-  WHERE winery.region_id = region.region_id
-  AND wine.winery_id = winery.winery_id
+  FROM winery, wine, wine_variety, region, inventory, grape_variety, items
+  WHERE winery.winery_id = wine.winery_id
+  AND winery.winery_id = region.region_id
   AND wine.wine_id = inventory.wine_id
-  AND wine.wine_id = wine_variety.wine_id";
+  AND wine.wine_id = items.wine_id
+  AND wine.wine_id = wine_variety.wine_id
+  AND inventory.wine_id = wine_variety.wine_id
+  AND grape_variety.variety_id = wine_variety.variety_id";
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 
@@ -109,37 +112,37 @@
     $query .= " AND wine_name = '{$nameWine}'";
   }
 
-  // if (isset($nameWinery) && $nameWinery != "All") {
-  //   $query .= " AND winery_name = '{$nameWinery}'";
-  // }
+  if (isset($nameWinery) && $nameWinery != "All") {
+    $query .= " AND winery_name = '{$nameWinery}'";
+  }
 
-  // if (isset($region) && $region != "All") {
-  //   $query .= " AND region = '{$region}'";
-  // }
+  if (isset($region) && $region != "All") {
+    $query .= " AND region = '{$region}'";
+  }
 
-  // if (isset($grapeVariety) && $grapeVariety != 1) {
-  //   $query .= " AND variety = '{$grapeVariety}'";
-  // }
+  if (isset($grapeVariety) && $grapeVariety != 1) {
+    $query .= " AND variety = '{$grapeVariety}'";
+  }
 
-  // if (isset($yearLow) && $yearLow != "All") {
-  //   $query .= " AND year >= '{$yearLow}'";
-  // }
+  if (isset($yearLow) && $yearLow != "All") {
+    $query .= " AND year >= '{$yearLow}'";
+  }
 
-  // if (isset($yearMax) && $yearMax != "All") {
-  //   $query .= " AND year <= '{$yearMax}'";
-  // }
+  if (isset($yearMax) && $yearMax != "All") {
+    $query .= " AND year <= '{$yearMax}'";
+  }
 
-  // if (isset($costMin) && $costMin != "All") {
-  //   $query .= " AND cost >= '{$costMin}'";
-  // }
+  if (isset($costMin) && $costMin != "All") {
+    $query .= " AND cost >= '{$costMin}'";
+  }
 
-  // if (isset($costMax) && $costMax != "All") {
-  //   $query .= " AND cost <= '{$costMax}'";
-  // }
+  if (isset($costMax) && $costMax != "All") {
+    $query .= " AND cost <= '{$costMax}'";
+  }
 
-  // if (isset($minStock) && $minStock != "All") {
-  //   $query .= " AND on_hand >= '{$minStock}'";
-  // }
+  if (isset($minStock) && $minStock != "All") {
+    $query .= " AND on_hand >= '{$minStock}'";
+  }
 
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 

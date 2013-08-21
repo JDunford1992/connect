@@ -1,5 +1,3 @@
-partB_results.php
-
 <html>
 <head>
 	<style>
@@ -101,7 +99,7 @@ partB_results.php
   WHERE winery.region_id = region.region_id
   AND wine.winery_id = winery.winery_id
   AND wine.wine_id = inventory.wine_id
-  AND grape_variety.variety_id = wine_variety.variety_id";
+  AND wine.wine_id = wine_variety.wine_id";
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 

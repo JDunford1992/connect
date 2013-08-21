@@ -91,8 +91,8 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
-  wine.year, winery.winery_name, region.region_name, inventory.cost
+  $query = "SELECT wine_id, wine_name, variety, 
+  year, winery_name, region_name, cost
 
   FROM winery 
   NATURAL JOIN grape_variety

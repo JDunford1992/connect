@@ -116,13 +116,13 @@
     $query .= " AND winery_name = '{$nameWinery}'";
   }
 
-  // if (isset($region) && $region != "All") {
-  //   $query .= " AND region = '{$region}'";
-  // }
+  if (isset($region) && $region != 1) {
+    $query .= " AND region = '{$region}'";
+  }
 
-  // if (isset($grapeVariety) && $grapeVariety != 1) {
-  //   $query .= " AND variety = '{$grapeVariety}'";
-  // }
+  if (isset($grapeVariety) && $grapeVariety != 1) {
+    $query .= " AND variety = '{$grapeVariety}'";
+  }
 
   // if (isset($yearLow) && $yearLow != "All") {
   //   $query .= " AND year >= '{$yearLow}'";

@@ -56,10 +56,10 @@
 					<td>
 						<select id="grapeVariety" name="grapeVariety" value="grape_variety">
 							<?php
-							$result = mysql_query("SELECT variety FROM grape_variety ");
+							$result = mysql_query("SELECT variety, variety_id FROM grape_variety ");
 							while($row = mysql_fetch_array($result)) {
 							?>
-							<option value="$tableName"><?php echo $row["variety"]?></option>;
+							<option value=<?php echo $row["variety_id"]?>><?php echo $row["variety"]?></option>;
 							<?php
 							}
 							?>

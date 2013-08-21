@@ -147,7 +147,7 @@
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
-  $query .= "ORDER BY wine_id";
+  // $query .= "ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

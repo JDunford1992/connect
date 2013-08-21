@@ -117,7 +117,7 @@
   }
 
   if (isset($region) && $region != 1) {
-    $query .= " AND region = '{$region}'";
+    $query .= " AND winery.region_id = '{$region}'";
   }
 
   // if (isset($grapeVariety) && $grapeVariety != 1) {

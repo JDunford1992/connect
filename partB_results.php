@@ -109,7 +109,7 @@
   // as an AND clause ...
 
   if (isset($nameWine) && $nameWine != "All") {
-    $query .= " AND wine_name = '{$nameWine}'";
+    $query .= " WHERE wine_name = '{$nameWine}'";
   }
 
   // if (isset($nameWinery) && $nameWinery != "All") {

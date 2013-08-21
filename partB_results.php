@@ -92,8 +92,8 @@
 
   // Start a query ...
   $query = "SELECT wine_id, wine_name, variety, 
-  year, winery_name, region_name, cost
-
+  year, winery_name, region_name, cost, on_hand, SUM(qty), SUM(price)
+  
   FROM winery 
   NATURAL JOIN grape_variety
   NATURAL JOIN region

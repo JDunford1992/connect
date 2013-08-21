@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<style>
@@ -91,26 +92,24 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine_id, wine_name, variety, 
-  year, winery_name, region_name, cost, on_hand, SUM(qty), SUM(price)
-
-  FROM winery 
-  NATURAL JOIN grape_variety BY variety_id
-  NATURAL JOIN region BY region_id
-  NATURAL JOIN wine BY wine_id
-  NATURAL JOIN items BY wine_id
-  NATURAL JOIN inventory BY wine_id
-  NATURAL JOIN wine_variety BY wine_id";
-
+  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
+  wine.year, winery.winery_name, region.region_name, inventory.cost
+  -- , inventory.on_hand, 
+  -- SUM(items.qty), SUM(items.price)
+  FROM winery, grape_variety, region, wine, items, inventory, wine_variety
+  WHERE winery.region_id = region.region_id
+  AND wine.winery_id = winery.winery_id
+  AND wine.wine_id = inventory.wine_id
+  AND wine.wine_id = wine_variety.wine_id";
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 
   // ... then, if the user has specified a region, add the regionName
   // as an AND clause ...
 
-  // if (isset($nameWine) && $nameWine != "All") {
-  //   $query .= " WHERE wine_name = '{$nameWine}'";
-  // }
+  if (isset($nameWine) && $nameWine != "All") {
+    $query .= " AND wine_name = '{$nameWine}'";
+  }
 
   // if (isset($nameWinery) && $nameWinery != "All") {
   //   $query .= " AND winery_name = '{$nameWinery}'";
@@ -147,7 +146,7 @@
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
-  $query .= "ORDER BY wine_id";
+  $query .= " ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

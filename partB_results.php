@@ -128,11 +128,11 @@
   }
 
   if (isset($yearLow) && $yearLow <= $yearMax) {
-    $query .= " AND year >= '{$yearLow}'";
+    $query .= " AND year = '{$yearLow}'";
   }
 
   if (isset($yearMax) && $yearMax <= $yearLow) {
-    $query .= " AND year <= '{$yearMax}'";
+    $query .= " AND year = '{$yearMax}'";
   }
 
   // if (isset($costMin) && $costMin != "All") {

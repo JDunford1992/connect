@@ -20,7 +20,7 @@
   require 'db.php';
 
   // Show all wines in a region in a <table>
-  function displayWinesList($connection, $query, $nameWine, $grapeVariety) {
+  function displayWinesList($connection, $query, $nameWine) {
     // Run the query on the server
     if (!($result = @ mysql_query ($query, $connection))) {
       showerror();
@@ -103,8 +103,8 @@
   AND inventory.wine_id = wine_variety.wine_id
   AND grape_variety.variety_id = wine_variety.variety_id";
 
-  YEAR AND CLAUSE
-  COST AND CLAUSE
+  // YEAR AND CLAUSE
+  // COST AND CLAUSE
 
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 
@@ -153,7 +153,7 @@
   $query .= " ORDER BY wine_id";
 
   // run the query and show the results
-  displayWinesList($connection, $query, $nameWine, $grapeVariety);
+  displayWinesList($connection, $query, $nameWine);
 ?>
 
 </body>

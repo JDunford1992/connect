@@ -131,13 +131,9 @@
     $query .= " AND year BETWEEN '{$yearLow}' AND '{$yearMax}'";
   }
 
-  // if (isset($costMin) && $costMin != "All") {
-  //   $query .= " AND cost >= '{$costMin}'";
-  // }
-
-  // if (isset($costMax) && $costMax != "All") {
-  //   $query .= " AND cost <= '{$costMax}'";
-  // }
+  if (isset($costMin, $costMax) && $costMin <= $costMax && $costMax <= $costMin) {
+    $query .= " AND cost BETWEEN '{$costMin}' AND '{$costMax}'";
+  }
 
   // if (isset($minStock) && $minStock != "All") {
   //   $query .= " AND on_hand >= '{$minStock}'";

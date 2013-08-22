@@ -103,6 +103,9 @@
   AND inventory.wine_id = wine_variety.wine_id
   AND grape_variety.variety_id = wine_variety.variety_id";
 
+  YEAR AND CLAUSE
+  COST AND CLAUSE
+
   // ADD MORE AND CLAUSES HERE TO CONNECT THE TABLES TOGETHER TO MAKE IT RUN FASTER
 
   // ... then, if the user has specified a region, add the regionName

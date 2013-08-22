@@ -131,7 +131,7 @@
     $query .= " AND year BETWEEN '{$yearLow}' AND '{$yearMax}'";
   }
 
-  if (isset($costMin, $costMax) && $costMin <= $costMax && $costMax <= $costMin) {
+  if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {
     $query .= " AND cost BETWEEN '{$costMin}' AND '{$costMax}'";
   }
 

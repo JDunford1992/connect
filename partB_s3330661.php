@@ -76,7 +76,7 @@
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
 							?>
-							<option value="$tableName"><?php echo $row["year"]?></option>;
+							<option value=<?php echo $row["year"]?>><?php echo $row["year"]?></option>;
 							<?php
 							}
 							?>
@@ -89,7 +89,7 @@
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
 							?>
-							<option value="$tableName"><?php echo $row["year"]?></option>;
+							<option value=<?php echo $row["year"]?>><?php echo $row["year"]?></option>;
 							<?php
 							}
 							?>

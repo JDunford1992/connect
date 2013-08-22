@@ -92,7 +92,7 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, 
+  $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
   FROM winery, wine, wine_variety, region, inventory, grape_variety, items
   WHERE winery.winery_id = wine.winery_id

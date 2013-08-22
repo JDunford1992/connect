@@ -123,7 +123,7 @@
     $query .= " AND winery.region_id = '{$region}'";
   }
 
-  if (isset($grapeVariety) && $grapeVariety != 1) {
+  if (isset($grapeVariety) && $grapeVariety != "All") {
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 

@@ -128,7 +128,7 @@
   }
 
   if (isset($yearLow, $yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
-    $query .= " AND wine.year BETWEEN $yearLow AND $yearMax";
+    $query .= " AND year BETWEEN $yearLow AND $yearMax";
   }
 
   // if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {

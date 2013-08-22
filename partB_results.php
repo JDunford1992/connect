@@ -127,8 +127,8 @@
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
-  if (isset($yearLow, $yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
-    $query .= " AND year BETWEEN $yearLow AND $yearMax";
+  if (isset($yearLow) && isset($yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
+    $query .= " AND year BETWEEN '{$yearLow}' AND '{$yearMax}'";
   }
 
   // if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {

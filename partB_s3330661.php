@@ -99,8 +99,8 @@
 
 				<tr>
 					<td> $ Cost Range: </td>
-					<td> Min ($) = <input id="costMin" name="costMin" type="text" value=""> </td>
-					<td> Max ($) = <input id="costMax" name="costMax" type="text" value=""> </td>
+					<td> Min ($) = <input id="costMin" name="costMin" type="number" value="0"> </td>
+					<td> Max ($) = <input id="costMax" name="costMax" type="number" value="0"> </td>
 				</tr>
 
 				<tr>

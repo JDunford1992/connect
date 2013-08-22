@@ -127,13 +127,13 @@
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
-  // if (isset($yearLow) && $yearLow != "All") {
-  //   $query .= " AND year >= '{$yearLow}'";
-  // }
+  if (isset($yearLow) && $yearLow <= $yearMax) {
+    $query .= " AND year >= '{$yearLow}'";
+  }
 
-  // if (isset($yearMax) && $yearMax != "All") {
-  //   $query .= " AND year <= '{$yearMax}'";
-  // }
+  if (isset($yearMax) && $yearMax <= $yearLow) {
+    $query .= " AND year <= '{$yearMax}'";
+  }
 
   // if (isset($costMin) && $costMin != "All") {
   //   $query .= " AND cost >= '{$costMin}'";

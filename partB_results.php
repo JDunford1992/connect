@@ -91,6 +91,15 @@
     showerror();
   }
 
+  // Do Error Checking Here
+
+  function costError($costMin, $costMax) {
+    $errorText = "";
+    if ($costMin >= $costMax) $errorText = "Min Cost must be less than Max Cost.";
+  }
+
+  $errortext = costError($costMin, $costMax);
+
   // Start a query ...
   $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand,
@@ -103,7 +112,8 @@
   AND wine.wine_id = wine_variety.wine_id
   AND inventory.wine_id = wine_variety.wine_id
   AND grape_variety.variety_id = wine_variety.variety_id
-  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'";
+  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'
+  AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}'";
 
   // YEAR AND CLAUSE
   // COST AND CLAUSE
@@ -128,23 +138,6 @@
   if (isset($grapeVariety) && $grapeVariety != "All") {
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
-
-  // if (isset($yearLow) && isset($yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
-  //   $query .= " AND wine.year BETWEEN '{$yearLow}' AND '{$yearMax}'";
-  // }
-
-  if ($costMin <= $costMax && $costMax <= $costMin) {
-    $query .= "AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}'";
-  }
-  else{
-        print "<div>Incorrect Formatting of Costs<div>"
-  }
-
-  // if (isset($minStock) && $minStock != "All") {
-  //   $query .= " AND on_hand >= '{$minStock}'";
-  // }
-
-  // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
   $query .= " ORDER BY wine_id";

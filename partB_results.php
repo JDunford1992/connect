@@ -103,8 +103,7 @@
   AND wine.wine_id = wine_variety.wine_id
   AND inventory.wine_id = wine_variety.wine_id
   AND grape_variety.variety_id = wine_variety.variety_id
-  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'
-  AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}'";
+  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'";
 
   // YEAR AND CLAUSE
   // COST AND CLAUSE
@@ -134,9 +133,12 @@
   //   $query .= " AND wine.year BETWEEN '{$yearLow}' AND '{$yearMax}'";
   // }
 
-  // if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {
-  //   $query .= " AND cost BETWEEN '{$costMin}' AND '{$costMax}'";
-  // }
+  if ($costMin <= $costMax && $costMax <= $costMin) {
+    $query .= "AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}'";
+  }
+  else{
+        print "<div>Incorrect Formatting of Costs<div>"
+  }
 
   // if (isset($minStock) && $minStock != "All") {
   //   $query .= " AND on_hand >= '{$minStock}'";

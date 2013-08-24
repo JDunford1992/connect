@@ -101,7 +101,8 @@
   AND wine.wine_id = items.wine_id
   AND wine.wine_id = wine_variety.wine_id
   AND inventory.wine_id = wine_variety.wine_id
-  AND grape_variety.variety_id = wine_variety.variety_id";
+  AND grape_variety.variety_id = wine_variety.variety_id
+  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'";
 
   // YEAR AND CLAUSE
   // COST AND CLAUSE
@@ -127,9 +128,9 @@
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
-  if (isset($yearLow) && isset($yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
-    $query .= " AND wine.year BETWEEN '{$yearLow}' AND '{$yearMax}'";
-  }
+  // if (isset($yearLow) && isset($yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
+  //   $query .= " AND wine.year BETWEEN '{$yearLow}' AND '{$yearMax}'";
+  // }
 
   // if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {
   //   $query .= " AND cost BETWEEN '{$costMin}' AND '{$costMax}'";

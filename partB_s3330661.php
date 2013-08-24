@@ -18,15 +18,15 @@
 		var minOrder=document.forms["myForm"]["minOrder"].value;
 
 		if (costMin > costMax){
-			alert("Min Cost must be less than Max Cost");
+			alert("Min Cost Must Be Less Than Max Cost");
 			return false;
 		}
 		else if (minStock < 0){
-			alert("Min Stock must be a positive number");
+			alert("Min Wine (Stock) Must Be A Positive Number");
 			return false;
 		}
 		else if (minOrder < 0){
-			alert("Min Order must be a positive number");
+			alert("Min Wines (Ordered) Must Be A Positive Number");
 			return false;
 		}
 	}

@@ -58,7 +58,7 @@
             "\n\t<td>{$row["region_name"]}</td>" .
             "\n\t<td>{$row["cost"]}</td>" .
             "\n\t<td>{$row["on_hand"]}</td>" .
-            "\n\t<td>{$row["qty"]}</td>" .
+            "\n\t<td>{$row["SUM(items.qty)"]}</td>" .
             "\n\t<td>{$row["price"]}</td>\n</tr>";
       } // end while loop body
 
@@ -93,7 +93,8 @@
 
   // Start a query ...
   $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, 
-  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
+  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand,
+  SUM(items.qty)
   FROM winery, wine, wine_variety, region, inventory, grape_variety, items
   WHERE winery.winery_id = wine.winery_id
   AND winery.region_id = region.region_id

@@ -9,6 +9,8 @@
 
 	<script type="text/javascript">
 
+	var errorMessage = "Fine";
+
 	function validateForm(){
 
 		var costMin=document.forms["myForm"]["costMin"].value;
@@ -19,9 +21,11 @@
 
 		if (costMin > costMax || costMax < costMin)
 		{
-			alert("Min Cost must be less than Max Cost");
-			return false;
+			errorMessage = "Min Cost must be less than Max Cost";
+			break;
 		}
+		alert(errorMessage);
+		return false;
 	}
 	</script>
 </head>

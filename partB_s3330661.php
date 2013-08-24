@@ -9,26 +9,19 @@
 
 	<script type="text/javascript">
 
-	var txt="";
-
 	function validateForm(){
 
 		var costMin=document.forms["myForm"]["costMin"].value;
 		var costMax=document.forms["myForm"]["costMax"].value;
 
-		var costMax=document.forms["myForm"]["minStock"].value;
-		var costMax=document.forms["myForm"]["minOrder"].value;
+		var costMax=document.forms["myForm"]["costMax"].value;
+		var costMax=document.forms["myForm"]["costMax"].value;
 
-		if (costMin > costMax){
-			txt="Error description: Min Cost must be less than Max Cost.\n\n";
+		if (costMin > costMax || costMax < costMin)
+		{
+			alert("Min Cost must be less than Max Cost");
+			return false;
 		}
-		else if (minStock < 0){
-			txt="Error description: Min Stock must be a Positive Number.\n\n";
-		}
-		else if (minOrder < 0){
-			txt="Error description: Min Order must be a Positive Number.\n\n";
-		}
-		alert(txt);
 	}
 	</script>
 </head>
@@ -53,7 +46,7 @@
 		<h1>Welcome to the Alpha Tool</h1>
 		<p>- This is an RMIT Student Project for WDA (Sem-2 2013) -</p>
 
-		<form name="myForm"  onSubmit="validateForm()" action= "partB_results.php" method="GET">
+		<form name="myForm" onsubmit="return validateForm()" action= "partB_results.php" method="GET">
 
 			<table style="border-style:solid;border-width:5px;">
 				<tr> 

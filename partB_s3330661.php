@@ -9,7 +9,7 @@
 
 	<script type="text/javascript">
 
-	var txt="There was an error on this page.\n\n";
+	var txt="";
 
 	function validateForm(){
 
@@ -20,13 +20,13 @@
 		var costMax=document.forms["myForm"]["minOrder"].value;
 
 		if (costMin > costMax){
-			txt+="Error description: Min Cost must be less than Max Cost.\n\n";
+			txt="Error description: Min Cost must be less than Max Cost.\n\n";
 		}
 		else if (minStock < 0){
-			txt+="Error description: Min Stock must be a Positive Number.\n\n";
+			txt="Error description: Min Stock must be a Positive Number.\n\n";
 		}
 		else if (minOrder < 0){
-			txt+="Error description: Min Order must be a Positive Number.\n\n";
+			txt="Error description: Min Order must be a Positive Number.\n\n";
 		}
 		alert(txt);
 	}

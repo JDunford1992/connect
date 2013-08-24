@@ -10,14 +10,27 @@
 	<script type="text/javascript">
 
 	function validateForm(){
+		var txt="There was an error on this page.\n\n";
+
 		var costMin=document.forms["myForm"]["costMin"].value;
 		var costMax=document.forms["myForm"]["costMax"].value;
 
-		if (costMin > costMax)
-		{
-			alert("First name must be filled out");
+		var costMax=document.forms["myForm"]["minStock"].value;
+		var costMax=document.forms["myForm"]["minOrder"].value;
+
+		if (costMin > costMax || costMax < costMin){
+			txt+="Error description: Min Cost must be less than Max Cost.\n\n";
 			return false;
 		}
+		else if (minStock < 0){
+			txt+="Error description: Min Stock must be a Positive Number.\n\n";
+			return false;
+		}
+		else if (minOrder < 0){
+			txt+="Error description: Min Order must be a Positive Number.\n\n";
+			return false;
+		}
+		alert(txt);
 	}
 	</script>
 </head>

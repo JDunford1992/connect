@@ -9,8 +9,9 @@
 
 	<script type="text/javascript">
 
-	function validateForm(){
 		var txt="There was an error on this page.\n\n";
+
+	function validateForm(){
 
 		var costMin=document.forms["myForm"]["costMin"].value;
 		var costMax=document.forms["myForm"]["costMax"].value;

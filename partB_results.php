@@ -101,8 +101,7 @@
   AND wine.wine_id = items.wine_id
   AND wine.wine_id = wine_variety.wine_id
   AND inventory.wine_id = wine_variety.wine_id
-  AND grape_variety.variety_id = wine_variety.variety_id
-  AND wine.year >='{$yearLow}' AND wine.year <= '{$yearMax}'";
+  AND grape_variety.variety_id = wine_variety.variety_id";
 
   // YEAR AND CLAUSE
   // COST AND CLAUSE

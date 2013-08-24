@@ -14,11 +14,18 @@
 		var costMin=document.forms["myForm"]["costMin"].value;
 		var costMax=document.forms["myForm"]["costMax"].value;
 
+	    var yearLow=document.forms["myForm"]["yearLow"].value;
+		var yearMax=document.forms["myForm"]["yearMax"].value;
+
 		var minStock=document.forms["myForm"]["minStock"].value;
 		var minOrder=document.forms["myForm"]["minOrder"].value;
 
 		if (costMin > costMax){
 			alert("Min Cost Must Be Less Than Max Cost");
+			return false;
+		}
+		else if (yearLow > yearMax){
+			alert("Year MIN Must Be Less Than Year MAX");
 			return false;
 		}
 		else if (minStock < 0){

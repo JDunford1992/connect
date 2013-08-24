@@ -91,17 +91,6 @@
     showerror();
   }
 
-  // Do Error Checking Here
-
-  function costError($costMin, $costMax) {
-    $errorText = "";
-    if ($costMin >= $costMax) $errorText = "Min Cost must be less than Max Cost.";
-  }
-
-  $errortext = costError($costMin, $costMax);
-
-  echo "<p><b>**$errortext</b></p>";
-
   // Start a query ...
   $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, 
   wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand,

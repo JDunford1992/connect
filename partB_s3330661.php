@@ -19,17 +19,14 @@
 		var costMax=document.forms["myForm"]["minStock"].value;
 		var costMax=document.forms["myForm"]["minOrder"].value;
 
-		if (costMin > costMax || costMax < costMin){
+		if (costMin > costMax){
 			txt+="Error description: Min Cost must be less than Max Cost.\n\n";
-			return false;
 		}
 		else if (minStock < 0){
 			txt+="Error description: Min Stock must be a Positive Number.\n\n";
-			return false;
 		}
 		else if (minOrder < 0){
 			txt+="Error description: Min Order must be a Positive Number.\n\n";
-			return false;
 		}
 		alert(txt);
 	}

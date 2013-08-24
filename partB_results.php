@@ -58,8 +58,8 @@
             "\n\t<td>{$row["region_name"]}</td>" .
             "\n\t<td>{$row["cost"]}</td>" .
             "\n\t<td>{$row["on_hand"]}</td>" .
-            "\n\t<td>{$row[9]}</td>" .
-            "\n\t<td>{$row[10]}</td>\n</tr>";
+            "\n\t<td>{$row["SUM(items.qty)"]}</td>" .
+            "\n\t<td>{$row["SUM(items.price)"]}</td>\n</tr>";
       } // end while loop body
 
       // Finish the <table>

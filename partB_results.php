@@ -129,7 +129,7 @@
   }
 
   // ... and then complete the query.
-  $query .= " ORDER BY wine_id";
+  $query .= "GROUP BY wine_id ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

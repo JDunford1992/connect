@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<style>
@@ -91,7 +92,7 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, wine.year, 
+  $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, wine.year, 
   winery.winery_name, region.region_name, inventory.cost, inventory.on_hand, items.qty, items.price
   FROM winery, wine, wine_variety, region, inventory, grape_variety, items
   WHERE winery.winery_id = wine.winery_id
@@ -129,7 +130,7 @@
   }
 
   // ... and then complete the query.
-  $query .= "GROUP BY wine_id ORDER BY wine_id";
+  $query .= " ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

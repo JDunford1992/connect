@@ -103,7 +103,7 @@
 				<tr>
 					<td> Range of Years (MIN): </td>
 					<td>
-						<select id="yearLow" name="yearLow" value="yearLow">
+						<select id="yearLow" name="yearLow" value="1970">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -116,7 +116,7 @@
 					</td>
 					<td> Range of Years (MAX): </td>
 					<td>
-						<select id="yearMax" name="yearMax" value="yearMax">
+						<select id="yearMax" name="yearMax" value="1999">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -131,8 +131,8 @@
 
 				<tr>
 					<td> $ Cost Range: </td>
-					<td> Min ($) = <input id="costMin" name="costMin" type="number" value="0"> </td>
-					<td> Max ($) = <input id="costMax" name="costMax" type="number" value="0"> </td>
+					<td> Min ($) = <input id="costMin" name="costMin" type="text" value="0"> </td>
+					<td> Max ($) = <input id="costMax" name="costMax" type="text" value="10000"> </td>
 				</tr>
 
 				<tr>

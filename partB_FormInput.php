@@ -21,11 +21,11 @@
 		var minStock=document.forms["myForm"]["minStock"].value;
 		var minOrder=document.forms["myForm"]["minOrder"].value;
 
-		if (IsNumeric(costMin)=false || IsNumeric(costMax)=false){
+		if (isNaN(costMin)=false || isNaN(costMax)=false){
 			alert("Min Cost & Max Cost Must Be Numeric");
 			return false;
 		}
-		else if (IsNumeric(minStock)=false || IsNumeric(minOrder)=false){
+		else if (isNaN(minStock)=false || isNaN(minOrder)=false){
 			alert("Min Stock & Min Order Must Be Numeric");
 			return false;
 		}

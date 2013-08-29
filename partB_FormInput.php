@@ -1,5 +1,6 @@
 <html>
 <head>
+	<title>Wine Form Input Page</title>
 	<style>
 	table,th,td
 	{
@@ -103,7 +104,7 @@
 				<tr>
 					<td> Range of Years (MIN): </td>
 					<td>
-						<select id="yearLow" name="yearLow" value="">
+						<select id="yearLow" name="yearLow" value="All">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {
@@ -116,7 +117,7 @@
 					</td>
 					<td> Range of Years (MAX): </td>
 					<td>
-						<select id="yearMax" name="yearMax" value="">
+						<select id="yearMax" name="yearMax" value="All">
 							<?php
 							$result = mysql_query("SELECT DISTINCT year FROM wine ORDER BY `year` ASC ");
 							while($row = mysql_fetch_array($result)) {

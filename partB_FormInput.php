@@ -45,6 +45,7 @@
 			alert("Min Wines (Ordered) Must Be A Positive Number");
 			return false;
 		}
+		return true;
 	}
 	</script>
 </head>

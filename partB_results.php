@@ -102,8 +102,7 @@
   AND wine.wine_id = wine_variety.wine_id
   AND inventory.wine_id = wine_variety.wine_id
   AND grape_variety.variety_id = wine_variety.variety_id
-  AND wine.year >= '{$yearLow}' AND wine.year <= '{$yearMax}'
-  AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}'";
+  AND wine.year >= '{$yearLow}' AND wine.year <= '{$yearMax}'";
 
   // YEAR AND CLAUSE
   // COST AND CLAUSE
@@ -127,6 +126,18 @@
 
   if (isset($grapeVariety) && $grapeVariety != "All") {
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
+  }
+
+  if (isset($costMin) && $costMin != "") {
+    $query .= " AND inventory.cost >= '{$costMin}'";
+  }
+
+  if (isset($costMax) && $costMax != "") {
+    $query .= " AND inventory.cost <= '{$costMax}'";
+  }
+
+  if (isset($costMin, $costMax) && $costMin != "" && $costMax != "") {
+    $query .= " AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}' ";
   }
 
   if (isset($minStock) && $minStock != "") {

@@ -1,6 +1,6 @@
+
 <html>
 <head>
-  <title>Winestore Results Page</title>
 	<style>
 	table,th,td
 	{
@@ -59,7 +59,7 @@
             "\n\t<td>{$row["cost"]}</td>" .
             "\n\t<td>{$row["on_hand"]}</td>" .
             "\n\t<td>{$row["qty"]}</td>" .
-            "\n\t<td>{$row["SUM(items.price)"]}</td>\n</tr>";
+            "\n\t<td>{$row["price"]}</td>\n</tr>";
       } // end while loop body
 
       // Finish the <table>
@@ -92,8 +92,8 @@
   }
 
   // Start a query ...
-  $query = "SELECT wine.wine_id, wine.wine_name, grape_variety.variety, wine.year, 
-  winery.winery_name, region.region_name, inventory.cost, inventory.on_hand, items.qty, SUM(items.price)
+  $query = "SELECT DISTINCT wine.wine_id, wine.wine_name, grape_variety.variety, 
+  wine.year, winery.winery_name, region.region_name, inventory.cost, inventory.on_hand
   FROM winery, wine, wine_variety, region, inventory, grape_variety, items
   WHERE winery.winery_id = wine.winery_id
   AND winery.region_id = region.region_id
@@ -127,32 +127,22 @@
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
-  if (isset($yearLow, $yearMax) && $yearLow != "All" && $yearMax != "All") {
-    $query .= "   AND wine.year >= '{$yearLow}' AND wine.year <= '{$yearMax}' ";
+  if (isset($yearLow) && isset($yearMax) && $yearLow <= $yearMax && $yearMax <= $yearLow) {
+    $query .= " AND wine.year BETWEEN '{$yearLow}' AND '{$yearMax}'";
   }
 
-  if (isset($costMin) && $costMin != "") {
-    $query .= " AND inventory.cost >= '{$costMin}'";
-  }
+  // if (isset($costMin, $costMax) && $costMin != "All" && $costMax != "All" && $costMin <= $costMax && $costMax <= $costMin) {
+  //   $query .= " AND cost BETWEEN '{$costMin}' AND '{$costMax}'";
+  // }
 
-  if (isset($costMax) && $costMax != "") {
-    $query .= " AND inventory.cost <= '{$costMax}'";
-  }
+  // if (isset($minStock) && $minStock != "All") {
+  //   $query .= " AND on_hand >= '{$minStock}'";
+  // }
 
-  if (isset($costMin, $costMax) && $costMin != "" && $costMax != "") {
-    $query .= " AND inventory.cost >='{$costMin}' AND inventory.cost <= '{$costMax}' ";
-  }
-
-  if (isset($minStock) && $minStock != "") {
-    $query .= " AND on_hand >= '{$minStock}'";
-  }
-
-  if (isset($minOrder) && $minOrder != "") {
-    $query .= " AND qty >= '{$minOrder}'";
-  }
+  // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
-  $query .= " GROUP BY wine_id, variety ORDER BY wine_id";
+  $query .= " ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

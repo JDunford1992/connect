@@ -1,6 +1,6 @@
-
 <html>
 <head>
+  <title>Wine Results Page</title>
 	<style>
 	table,th,td
 	{

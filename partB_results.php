@@ -142,7 +142,11 @@
   // IF STEMENTS SHOULD WORK FINE HERE IF CORRECT
 
   // ... and then complete the query.
+<<<<<<< HEAD
   $query .= " ORDER BY wine_id";
+=======
+  $query .= " GROUP BY wine_id ORDER BY wine_id";
+>>>>>>> fe19b398174c8b3b7ffd0a7329e54e41f40ddded
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

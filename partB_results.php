@@ -130,11 +130,11 @@
   }
 
   if (isset($minStock) && $minStock != "") {
-    $query .= " AND on_hand = '{$minStock}'";
+    $query .= " AND on_hand >= '{$minStock}'";
   }
 
   if (isset($minOrder) && $minOrder != "") {
-    $query .= " AND qty = '{$minOrder}'";
+    $query .= " AND qty >= '{$minOrder}'";
   }
 
   // ... and then complete the query.

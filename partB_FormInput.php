@@ -37,6 +37,14 @@
 			alert("Year MIN Must Be Less Than Year MAX");
 			return false;
 		}
+		else if (costMin < 0){
+			alert("Min Cost Must Be A Positive Number");
+			return false;
+		}
+		else if (costMax < 0){
+			alert("Max Cost Must Be A Positive Number");
+			return false;
+		}
 		else if (minStock < 0){
 			alert("Min Wine (Stock) Must Be A Positive Number");
 			return false;

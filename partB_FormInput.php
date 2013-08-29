@@ -21,7 +21,15 @@
 		var minStock=document.forms["myForm"]["minStock"].value;
 		var minOrder=document.forms["myForm"]["minOrder"].value;
 
-		if (costMin > costMax){
+		if (IsNumeric(costMin)=false || IsNumeric(costMax)=false){
+			alert("Min Cost & Max Cost Must Be Numeric");
+			return false;
+		}
+		else if (IsNumeric(minStock)=false || IsNumeric(minOrder)=false){
+			alert("Min Stock & Min Order Must Be Numeric");
+			return false;
+		}
+		else if (costMin > costMax){
 			alert("Min Cost Must Be Less Than Max Cost");
 			return false;
 		}

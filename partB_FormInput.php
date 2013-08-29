@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Wine Form Input Page</title>
+	<title>Winestore Form Input Page</title>
 	<style>
 	table,th,td
 	{

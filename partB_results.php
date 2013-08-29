@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<style>
@@ -128,8 +129,16 @@
     $query .= " AND grape_variety.variety_id = '{$grapeVariety}'";
   }
 
+  if (isset($minStock) && $minStock != "") {
+    $query .= " AND on_hand = '{$minStock}'";
+  }
+
+  if (isset($minOrder) && $minOrder != "") {
+    $query .= " AND qty = '{$minOrder}'";
+  }
+
   // ... and then complete the query.
-  $query .= "GROUP BY wine_id ORDER BY wine_id";
+  $query .= " ORDER BY wine_id";
 
   // run the query and show the results
   displayWinesList($connection, $query, $nameWine);

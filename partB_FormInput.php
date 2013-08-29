@@ -15,17 +15,17 @@
 		var costMin=document.forms["myForm"]["costMin"].value;
 		var costMax=document.forms["myForm"]["costMax"].value;
 
-	    var yearLow=document.forms["myForm"]["yearLow"].value;
+	        var yearLow=document.forms["myForm"]["yearLow"].value;
 		var yearMax=document.forms["myForm"]["yearMax"].value;
 
 		var minStock=document.forms["myForm"]["minStock"].value;
 		var minOrder=document.forms["myForm"]["minOrder"].value;
 
-		if (isNaN(costMin)=false || isNaN(costMax)=false){
+		if (isNaN(costMin)=true || isNaN(costMax)=true){
 			alert("Min Cost & Max Cost Must Be Numeric");
 			return false;
 		}
-		else if (isNaN(minStock)=false || isNaN(minOrder)=false){
+		else if (isNaN(minStock)=true || isNaN(minOrder)=true){
 			alert("Min Stock & Min Order Must Be Numeric");
 			return false;
 		}
